@@ -1,0 +1,1 @@
+web: gunicorn beeshop.wsgi
