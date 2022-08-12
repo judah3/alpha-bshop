@@ -16,8 +16,13 @@ def productList(request):
 
 @api_view(['GET'])
 def productDetails(request, id):
+    try:
+        product = Product.objects.get(id=id)
+    except Product.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
-    return HttpResponse("Product Details")
+    serializer = ProductSerializer(product)
+    return Response(serializer.data)
 
 @api_view(['POST'])
 def createProduct(request):
@@ -113,3 +118,26 @@ def orderDetail(request, order_uuid):
     orderItemSerializer = OrderProductSerializer(orderItem, many=True)
 
     return Response(orderItemSerializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def orderList(request, user_id):
+    order_list = Order.objects.filter(customer = user_id)
+    serializer = OrderSerializer(order_list, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+def deleteOrder(request, order_uuid):
+    try:
+        order = Order.objects.get(uuid=order_uuid)
+    except Order.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == "DELETE":
+        operation = order.delete()
+        data = {}
+        if operation:
+            data['success'] = "Delete Successful"
+        else:
+            data['failure'] = "Failed to Delete"
+    return Response(data=data, status=status.HTTP_200_OK)

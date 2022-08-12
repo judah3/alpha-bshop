@@ -93,18 +93,21 @@ WSGI_APPLICATION = 'beeshop.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    # sqllite
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8q91itp5ms7qq',
-        'USER': 'kvbunpurjosjhl',
-        'PASSWORD': 'd8b40e870cafda6ef6f5d440d1e84f7d0f7ed6f7670c6e0713ef7f7bcdd69fa4',
-        'HOST': 'ec2-52-72-99-110.compute-1.amazonaws.com',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    #heroku
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'd8q91itp5ms7qq',
+    #     'USER': 'kvbunpurjosjhl',
+    #     'PASSWORD': 'd8b40e870cafda6ef6f5d440d1e84f7d0f7ed6f7670c6e0713ef7f7bcdd69fa4',
+    #     'HOST': 'ec2-52-72-99-110.compute-1.amazonaws.com',
+    #     'PORT': '5432'
+    # }
+    # local db
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #     'NAME': 'bshop',

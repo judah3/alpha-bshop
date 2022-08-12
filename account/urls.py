@@ -11,6 +11,6 @@ urlpatterns = [
     path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
     path('customers/', customerList, name='user list'),
     path('customer/<int:id>', customerDetail, name='user details'),
-    path('customer/search/s', searchCustomer, name='search customer'),
+    path('customer/search/', searchCustomer, name='search customer'),
     
 ]
