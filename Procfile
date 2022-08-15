@@ -1,1 +1,1 @@
-web: gunicorn beeshop.wsgi
+web: gunicorn beeshop.wsgi --log-file -
