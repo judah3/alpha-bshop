@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-#c505@#e3c4_-m*w2j%4k48=5k+*-t#ohfk^tmd0ch_=t6ds3s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['beeshop-alpha.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
